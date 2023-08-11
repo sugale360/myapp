@@ -1,1 +1,14 @@
 <h1>Hello World</h1>
+<input type="text"  #box (keyup)="getData(box.value)" placeholder="Enter name" name="name" /> <br>
+{{displayValue}}
+<h3>{{counter}}</h3>
+<button (click)="add()">add</button>
+<button (click)="reduce()">reduce</button><br><br>
+<input type="text"disabled={{disable}}><br><br>
+<input type="text"[disabled]="disable"><br><br>
+<button (click)="changeDisable()">Change</button><br><br>
+<button (click)="show1()">Show Content</button>
+<h1 *ngIf="show else elseblock">Content shown</h1>
+<ng-template #elseblock>
+<h1 >ElseBlock</h1></ng-template>
+
