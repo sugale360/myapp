@@ -28,4 +28,20 @@ export class AppComponent {
   show1(){
 this.show ? this.show=false : this.show=true;
   }
+  color="yellow";
+  users=["Sagar","Ugale","sachin","yogesh","rahul"]
+  userDetails=[
+    {name: "Sagar", email: "sagar@gmail.com"},
+    {name: "gaurav", email: "gaurav@gmail.com"},
+
+    {name: "sumit", email: "sumit@gmail.com"},
+
+    {name: "yash", email: "yash@gmail.com"},
+
+  ]
+  updateColor(){
+    this.color="blue"
+    this.bgColor="red"
+  }
+  bgColor="green"
 }

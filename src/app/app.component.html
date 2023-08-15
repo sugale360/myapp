@@ -1,14 +1,43 @@
+<app-forms></app-forms>
 <h1>Hello World</h1>
-<input type="text"  #box (keyup)="getData(box.value)" placeholder="Enter name" name="name" /> <br>
-{{displayValue}}
-<h3>{{counter}}</h3>
+<input
+  type="text"
+  #box
+  (keyup)="getData(box.value)"
+  placeholder="Enter name"
+  name="name"
+/>
+<br />
+{{ displayValue }}
+<h3>{{ counter }}</h3>
 <button (click)="add()">add</button>
-<button (click)="reduce()">reduce</button><br><br>
-<input type="text"disabled={{disable}}><br><br>
-<input type="text"[disabled]="disable"><br><br>
-<button (click)="changeDisable()">Change</button><br><br>
+<button (click)="reduce()">reduce</button><br /><br />
+<input type="text" disabled="{{ disable }}" /><br /><br />
+<input type="text" [disabled]="disable" /><br /><br />
+<button (click)="changeDisable()">Change</button><br /><br />
 <button (click)="show1()">Show Content</button>
-<h1 *ngIf="show else elseblock">Content shown</h1>
+<h1 *ngIf="show; then ifblock; else elseblock">Content shown</h1>
+<ng-template #ifblock>
+  <h1>ifblock</h1>
+</ng-template>
 <ng-template #elseblock>
-<h1 >ElseBlock</h1></ng-template>
+  <h1>ElseBlock</h1>
+</ng-template>
+<ng-template #outlet [ngOutletContext]="context">
+  <h1>Hello brother</h1></ng-template
+>
+<ng-template [ngIf]="color === 'red'">
+  <h1 style="color: red">Red Colour</h1>
+</ng-template>
+<div [ngSwitch]="color">
+  <h1 *ngSwitchCase="'red'" style="color: red">Red Colour</h1>
+  <h1 *ngSwitchCase="'green'" style="color: green">Green Colour</h1>
+  <h1 *ngSwitchDefault>No colour</h1>
+</div>
+<h1 *ngFor="let user of users">{{ user }}</h1>
+<h2 *ngFor="let user of userDetails">
+  name is {{ user.name }} and email id is {{ user.email }}
+</h2>
 
+<h2 [style.color]="color" [style.backgroundColor]="bgColor">Color change</h2>
+<button (click)="updateColor()">Change color</button>
